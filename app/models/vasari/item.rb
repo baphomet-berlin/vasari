@@ -4,6 +4,10 @@ module Vasari
     validates :date, presence: true
     before_validation :handle_date
 
+    scope :by_year, -> { 
+      order(date: :desc).group_by{ |item| item.date.year } 
+    }
+
     def handle_date()
       if (self.date)
         self.current |= false;

@@ -7,6 +7,6 @@ one:
   role_id: 1
 
 two:
-  item_id: 
-  collaborator_id: 
-  role_id: 
+  item_id: 1
+  collaborator_id: 2
+  role_id: 2

@@ -11,7 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160309194726) do
+ActiveRecord::Schema.define(version: 20160309222833) do
+
+  create_table "vasari_collaborators", force: :cascade do |t|
+    t.string   "name"
+    t.string   "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "vasari_item_collaborators", force: :cascade do |t|
+    t.integer  "item_id"
+    t.integer  "collaborator_id"
+    t.integer  "role_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "vasari_item_collaborators", ["collaborator_id"], name: "index_vasari_item_collaborators_on_collaborator_id"
+  add_index "vasari_item_collaborators", ["item_id"], name: "index_vasari_item_collaborators_on_item_id"
+  add_index "vasari_item_collaborators", ["role_id"], name: "index_vasari_item_collaborators_on_role_id"
 
   create_table "vasari_items", force: :cascade do |t|
     t.string   "title"
@@ -28,6 +47,12 @@ ActiveRecord::Schema.define(version: 20160309194726) do
   add_index "vasari_items", ["listable_type", "listable_id"], name: "index_vasari_items_on_listable_type_and_listable_id"
 
   create_table "vasari_life_events", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "vasari_roles", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

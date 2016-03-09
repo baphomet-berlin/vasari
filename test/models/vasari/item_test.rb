@@ -48,15 +48,19 @@ module Vasari
     end
   end
   class ItemTest::Associations < ActiveSupport::TestCase
-    test "associates to work items" do 
+    test "associates to :works" do 
       item = Item.find(1)
       assert_equal item.listable.id, 1, "correct listable id"
       assert_equal item.listable_type, "Vasari::Work", "correct listable type"
     end
-    test "associates to life events" do 
+    test "associates to :life_events" do 
       item = Item.find(2)
       assert_equal item.listable.id, 1, "correct listable id"
       assert_equal item.listable_type, "Vasari::LifeEvent", "correct listable type"
+    end
+    test "associates to :item_collaborators" do 
+      item = Item.find(1)
+      assert_equal item.item_collaborators.first.id, 1, "correct listable id"
     end
   end
 end

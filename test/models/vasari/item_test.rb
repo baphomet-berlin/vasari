@@ -51,7 +51,12 @@ module Vasari
     test "associates to work items" do 
       item = Item.find(1)
       assert_equal item.listable.id, 1, "correct listable id"
-      assert_equal item.listable_type, 1, 1, "correct listable type"
+      assert_equal item.listable_type, "Vasari::Work", "correct listable type"
+    end
+    test "associates to life events" do 
+      item = Item.find(2)
+      assert_equal item.listable.id, 1, "correct listable id"
+      assert_equal item.listable_type, "Vasari::LifeEvent", "correct listable type"
     end
   end
 end

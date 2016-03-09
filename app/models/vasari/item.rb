@@ -3,6 +3,7 @@ module Vasari
     validates :title, presence: true
     validates :date, presence: true
     before_validation :handle_date
+    belongs_to :listable, polymorphic: true
 
     scope :by_year, -> { 
       order(date: :desc).group_by{ |item| item.date.year } 

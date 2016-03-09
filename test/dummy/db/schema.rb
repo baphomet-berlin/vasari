@@ -11,17 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160309184316) do
+ActiveRecord::Schema.define(version: 20160309185202) do
 
   create_table "vasari_items", force: :cascade do |t|
     t.string   "title"
     t.date     "date_start"
     t.date     "date_end"
     t.date     "date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.boolean  "current"
+    t.integer  "listable_id"
+    t.string   "listable_type"
   end
+
+  add_index "vasari_items", ["listable_type", "listable_id"], name: "index_vasari_items_on_listable_type_and_listable_id"
 
   create_table "vasari_works", force: :cascade do |t|
     t.datetime "created_at", null: false

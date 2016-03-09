@@ -10,12 +10,13 @@ one:
   listable_type: Vasari::Work
 
 two:
+  id: 2
   title: two
   date_start: 2016-01-03
   date_end: 2016-01-03
   date: 2016-01-03
-  listable_id: 2
-  listable_type: Vasari::Work
+  listable_id: 1
+  listable_type: Vasari::LifeEvent
 
 three:
   title: three

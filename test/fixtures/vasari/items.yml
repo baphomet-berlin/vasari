@@ -1,12 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  id: 1
   title: one
   date_start: 2016-03-03
   date_end: 2016-03-03
   date: 2016-03-03
   listable_id: 1
-  listable_type: work
+  listable_type: Vasari::Work
 
 two:
   title: two
@@ -14,7 +15,7 @@ two:
   date_end: 2016-01-03
   date: 2016-01-03
   listable_id: 2
-  listable_type: work
+  listable_type: Vasari::Work
 
 three:
   title: three
@@ -22,4 +23,4 @@ three:
   date_end: 2015-03-03
   date: 2015-03-03
   listable_id: 3
-  listable_type: work
+  listable_type: Vasari::Work

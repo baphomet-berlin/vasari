@@ -47,4 +47,11 @@ module Vasari
       assert_equal items[2015].length, 1, "correct number of Items per group"
     end
   end
+  class ItemTest::Associations < ActiveSupport::TestCase
+    test "associates to work items" do 
+      item = Item.find(1)
+      assert_equal item.listable.id, 1, "correct listable id"
+      assert_equal item.listable_type, 1, 1, "correct listable type"
+    end
+  end
 end

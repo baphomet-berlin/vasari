@@ -1,5 +1,5 @@
 Develop: [![Build Status](https://travis-ci.org/baphomet-berlin/vasari.svg?branch=develop)](https://travis-ci.org/baphomet-berlin/vasari)
-Master: [![Build Status](https://travis-ci.org/baphomet-berlin/vasari.svg?branch=develop)](https://travis-ci.org/baphomet-berlin/vasari)
+Master: [![Build Status](https://travis-ci.org/baphomet-berlin/vasari.svg?branch=master)](https://travis-ci.org/baphomet-berlin/vasari)
 
 # Vasari
 

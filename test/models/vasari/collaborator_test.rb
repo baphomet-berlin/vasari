@@ -7,7 +7,7 @@ module Vasari
       assert_not collaborator.save, "Item not saved without :name"
       collaborator = Collaborator.new
       collaborator.name = "Mark"
-      assert collaborator.save, "Item saved :name"
+      assert collaborator.save, "Item saved with :name"
       collaborator = Collaborator.new
       collaborator.name = "Mark"
       assert_not collaborator.save, "Item not saved without unique :name"

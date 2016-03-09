@@ -4,8 +4,10 @@ module Vasari
     validates :date, presence: true
     before_validation :handle_date
     belongs_to :listable, polymorphic: true
+    has_many :item_collaborators
+    has_many :collaborators, through: :item_collaborator
 
-    scope :by_year, -> { 
+    scope :by_year, -> {
       order(date: :desc).group_by{ |item| item.date.year } 
     }
 

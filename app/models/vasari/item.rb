@@ -6,6 +6,7 @@ module Vasari
     belongs_to :listable, polymorphic: true
     has_many :item_collaborators
     has_many :collaborators, through: :item_collaborator
+    has_many :pictures
 
     scope :by_year, -> {
       order(date: :desc).group_by{ |item| item.date.year } 

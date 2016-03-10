@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160309222833) do
+ActiveRecord::Schema.define(version: 20160310191835) do
 
   create_table "vasari_collaborators", force: :cascade do |t|
     t.string   "name"
@@ -50,6 +50,18 @@ ActiveRecord::Schema.define(version: 20160309222833) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "vasari_pictures", force: :cascade do |t|
+    t.integer  "item_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
+
+  add_index "vasari_pictures", ["item_id"], name: "index_vasari_pictures_on_item_id"
 
   create_table "vasari_roles", force: :cascade do |t|
     t.string   "name"

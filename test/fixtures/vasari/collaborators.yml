@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: Collaborator 1
+  url: http://myurl.com
+
+two:
+  name: Collaborator 2
+  url: http://myotherurl.com

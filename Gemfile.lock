@@ -3,7 +3,7 @@ PATH
   specs:
     vasari (0.1.0)
       paperclip (~> 4.3.5)
-      rails (~> 4.2.5)
+      rails (~> 4.2)
 
 GEM
   remote: https://rubygems.org/

@@ -1,10 +1,10 @@
 module Vasari
   class ItemCollaborator < ActiveRecord::Base
-    belongs_to :item
-    belongs_to :collaborator
-    belongs_to :role
+    belongs_to :item, class_name: 'Vasari::Item'
+    belongs_to :collaborator, class_name: 'Vasari::Collaborator'
+    belongs_to :role, class_name: 'Vasari::Role'
     validates :item, presence: :true
-    validates :collaborator_id, presence: :true
+    validates :collaborator, presence: :true
     validates :role, presence: true
     validates :item, uniqueness: { scope: [:role, :collaborator] }
   end

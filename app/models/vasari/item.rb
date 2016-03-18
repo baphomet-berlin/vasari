@@ -1,12 +1,13 @@
 module Vasari
   class Item < ActiveRecord::Base
+    belongs_to :listable, polymorphic: true
+    has_many :item_collaborators, class_name: 'Vasari::ItemCollaborator'
+    has_many :collaborators, through: :item_collaborators, class_name: 'Vasari::Collaborator'
+    has_many :pictures, class_name: 'Vasari::Picture'
+
     validates :title, presence: true
     validates :date, presence: true
     before_validation :handle_date
-    belongs_to :listable, polymorphic: true
-    has_many :item_collaborators
-    has_many :collaborators, through: :item_collaborator
-    has_many :pictures
 
     scope :by_year, -> {
       order(date: :desc).group_by{ |item| item.date.year } 

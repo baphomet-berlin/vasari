@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160310193214) do
+ActiveRecord::Schema.define(version: 20160309205028) do
 
   create_table "vasari_collaborators", force: :cascade do |t|
     t.string   "name"
@@ -37,11 +37,11 @@ ActiveRecord::Schema.define(version: 20160310193214) do
     t.date     "date_start"
     t.date     "date_end"
     t.date     "date"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
     t.boolean  "current"
     t.integer  "listable_id"
     t.string   "listable_type"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   add_index "vasari_items", ["listable_type", "listable_id"], name: "index_vasari_items_on_listable_type_and_listable_id"
@@ -52,17 +52,16 @@ ActiveRecord::Schema.define(version: 20160310193214) do
   end
 
   create_table "vasari_pictures", force: :cascade do |t|
-    t.integer  "item_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.integer  "vasari_item_id"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.integer  "role"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
-  add_index "vasari_pictures", ["item_id"], name: "index_vasari_pictures_on_item_id"
+  add_index "vasari_pictures", ["vasari_item_id"], name: "index_vasari_pictures_on_vasari_item_id"
 
   create_table "vasari_roles", force: :cascade do |t|
     t.string   "name"

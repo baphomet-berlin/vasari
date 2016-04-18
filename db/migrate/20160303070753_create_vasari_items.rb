@@ -9,12 +9,6 @@ class CreateVasariItems < ActiveRecord::Migration
       t.references :listable, polymorphic: true, index: true
       t.timestamps null: false
     end
-    create_table :vasari_works do |t|
-      t.timestamps null: false
-    end
-    create_table :vasari_life_events do |t|
-      t.timestamps null: false
-    end
     create_table :vasari_pictures do |t|
       t.references :vasari_item, index: true, foreign_key: true
       t.attachment :image

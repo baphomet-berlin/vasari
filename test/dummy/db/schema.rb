@@ -20,39 +20,8 @@ ActiveRecord::Schema.define(version: 20160309205028) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "vasari_item_collaborators", force: :cascade do |t|
-    t.integer  "item_id"
-    t.integer  "collaborator_id"
-    t.integer  "role_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
-
-  add_index "vasari_item_collaborators", ["collaborator_id"], name: "index_vasari_item_collaborators_on_collaborator_id"
-  add_index "vasari_item_collaborators", ["item_id"], name: "index_vasari_item_collaborators_on_item_id"
-  add_index "vasari_item_collaborators", ["role_id"], name: "index_vasari_item_collaborators_on_role_id"
-
-  create_table "vasari_items", force: :cascade do |t|
-    t.string   "title"
-    t.date     "date_start"
-    t.date     "date_end"
-    t.date     "date"
-    t.boolean  "current"
-    t.integer  "listable_id"
-    t.string   "listable_type"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-  end
-
-  add_index "vasari_items", ["listable_type", "listable_id"], name: "index_vasari_items_on_listable_type_and_listable_id"
-
-  create_table "vasari_life_events", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "vasari_pictures", force: :cascade do |t|
-    t.integer  "vasari_item_id"
+    t.integer  "project_id"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
@@ -61,15 +30,32 @@ ActiveRecord::Schema.define(version: 20160309205028) do
     t.datetime "updated_at",         null: false
   end
 
-  add_index "vasari_pictures", ["vasari_item_id"], name: "index_vasari_pictures_on_vasari_item_id"
+  add_index "vasari_pictures", ["project_id"], name: "index_vasari_pictures_on_project_id"
 
-  create_table "vasari_roles", force: :cascade do |t|
-    t.string   "name"
+  create_table "vasari_project_collaborators", force: :cascade do |t|
+    t.integer  "project_id"
+    t.integer  "collaborator_id"
+    t.integer  "role_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "vasari_project_collaborators", ["collaborator_id"], name: "index_vasari_project_collaborators_on_collaborator_id"
+  add_index "vasari_project_collaborators", ["project_id"], name: "index_vasari_project_collaborators_on_project_id"
+  add_index "vasari_project_collaborators", ["role_id"], name: "index_vasari_project_collaborators_on_role_id"
+
+  create_table "vasari_projects", force: :cascade do |t|
+    t.string   "title"
+    t.date     "date_start"
+    t.date     "date_end"
+    t.date     "date"
+    t.boolean  "current"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "vasari_works", force: :cascade do |t|
+  create_table "vasari_roles", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

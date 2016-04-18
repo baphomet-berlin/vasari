@@ -13,6 +13,11 @@ module Vasari
       order(date: :desc).group_by{ |item| item.date.year } 
     }
 
+
+    rails_admin do 
+      visible false
+    end
+
     def handle_date()
       if (self.date)
         self.current |= false;

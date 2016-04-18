@@ -7,5 +7,8 @@ module Vasari
     validates :collaborator, presence: :true
     validates :role, presence: true
     validates :item, uniqueness: { scope: [:role, :collaborator] }
+    rails_admin do 
+      visible false
+    end
   end
 end

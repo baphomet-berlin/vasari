@@ -2,11 +2,11 @@
 
 one:
   id: 1
-  item_id: 1
+  project_id: 1
   collaborator_id: 1
   role_id: 1
 
 two:
-  item_id: 1
+  project_id: 1
   collaborator_id: 2
   role_id: 2

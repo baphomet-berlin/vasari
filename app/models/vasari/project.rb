@@ -8,12 +8,12 @@ module Vasari
     validates :date, presence: true
     before_validation :handle_date
 
-    rails_admin do
-    end
 
     scope :by_year, -> {
       order(date: :desc).group_by{ |item| item.date.year } 
     }
+
+    private
 
     def handle_date()
       if (self.date)

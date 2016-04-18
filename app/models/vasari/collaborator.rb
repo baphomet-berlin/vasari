@@ -6,9 +6,6 @@ module Vasari
     accepts_nested_attributes_for :projects
     validates :name, presence: true, uniqueness: true
 
-    rails_admin do 
-      navigation_label "Collaborations"
-    end
   end
 
 end

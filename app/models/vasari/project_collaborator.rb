@@ -1,6 +1,6 @@
 module Vasari
-  class ItemCollaborator < ActiveRecord::Base
-    belongs_to :portfolio_item, class_name: 'Vasari::PortfolioItem'
+  class ProjectCollaborator < ActiveRecord::Base
+    belongs_to :project, class_name: 'Vasari::Project'
     belongs_to :collaborator, class_name: 'Vasari::Collaborator'
     belongs_to :role, class_name: 'Vasari::Role'
     validates :item, presence: :true

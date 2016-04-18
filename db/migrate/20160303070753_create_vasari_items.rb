@@ -1,6 +1,6 @@
 class CreateVasariItems < ActiveRecord::Migration
   def change
-    create_table :vasari_portfolio_items do |t|
+    create_table :vasari_projects do |t|
       t.string :title
       t.date :date_start
       t.date :date_end
@@ -9,7 +9,7 @@ class CreateVasariItems < ActiveRecord::Migration
       t.timestamps null: false
     end
     create_table :vasari_pictures do |t|
-      t.references :vasari_portfolio_item, index: true, foreign_key: true
+      t.references :vasari_project, index: true, foreign_key: true
       t.attachment :image
       t.timestamps null: false
     end

@@ -1,7 +1,7 @@
 module Vasari
-  class PortfolioItem < ActiveRecord::Base
-    has_many :item_collaborators, class_name: 'Vasari::ItemCollaborator'
-    has_many :collaborators, through: :item_collaborators, class_name: 'Vasari::Collaborator'
+  class Project < ActiveRecord::Base
+    has_many :project_collaborators, class_name: 'Vasari::ProjectCollaborator'
+    has_many :collaborators, through: :project_collaborators, class_name: 'Vasari::Collaborator'
     has_many :pictures, class_name: 'Vasari::Picture'
 
     validates :title, presence: true

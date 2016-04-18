@@ -10,8 +10,8 @@ class CreateVasariCollaborators < ActiveRecord::Migration
 
       t.timestamps null: false
     end
-    create_table :vasari_item_collaborators do |t|
-      t.references :vasari_portfolio_item, index: true, foreign_key: true
+    create_table :vasari_project_collaborators do |t|
+      t.references :vasari_project, index: true, foreign_key: true
       t.references :vasari_collaborator, index: true, foreign_key: true
       t.references :vasari_role, index: true, foreign_key: true
       t.timestamps null: false

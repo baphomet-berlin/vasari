@@ -7,7 +7,6 @@ class CreateVasariCollaborators < ActiveRecord::Migration
     end
     create_table :vasari_roles do |t|
       t.string :name
-
       t.timestamps null: false
     end
     create_table :vasari_project_collaborators do |t|

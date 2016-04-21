@@ -1,8 +1,9 @@
 module Vasari
   class Project < ActiveRecord::Base
-    has_many :project_collaborators, class_name: 'Vasari::ProjectCollaborator'
+    has_many :project_collaborators, class_name: 'Vasari::ProjectCollaborator', inverse_of: :project
     has_many :collaborators, through: :project_collaborators, class_name: 'Vasari::Collaborator'
-    has_many :pictures, class_name: 'Vasari::Picture'
+    has_many :pictures, class_name: 'Vasari::Picture', inverse_of: :project
+    has_many :embeds, class_name: 'Vasari::Embed', inverse_of: :project
 
     validates :title, presence: true
     validates :date, presence: true

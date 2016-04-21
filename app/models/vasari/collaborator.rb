@@ -5,7 +5,5 @@ module Vasari
     has_many :projects, through: :project_collaborators, class_name: "Vasari::Project"
     accepts_nested_attributes_for :projects
     validates :name, presence: true, uniqueness: true
-
   end
-
 end

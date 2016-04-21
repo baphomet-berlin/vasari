@@ -1,22 +1,17 @@
 class CreateVasariItems < ActiveRecord::Migration
   def change
-    create_table :vasari_items do |t|
+    create_table :vasari_projects do |t|
       t.string :title
       t.date :date_start
       t.date :date_end
       t.date :date
       t.boolean :current
-      t.references :listable, polymorphic: true, index: true
-      t.timestamps null: false
-    end
-    create_table :vasari_works do |t|
-      t.timestamps null: false
-    end
-    create_table :vasari_life_events do |t|
+      t.text :brief_description
+      t.text :content
       t.timestamps null: false
     end
     create_table :vasari_pictures do |t|
-      t.references :vasari_item, index: true, foreign_key: true
+      t.references :project, index: true, foreign_key: true
       t.attachment :image
       t.timestamps null: false
     end

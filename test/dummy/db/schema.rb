@@ -25,17 +25,19 @@ ActiveRecord::Schema.define(version: 20160421150326) do
     t.string   "provider"
     t.string   "original_url"
     t.text     "code"
-    t.integer  "project_id"
+    t.integer  "embeddable_id"
+    t.string   "embeddable_type"
     t.string   "preview_file_name"
     t.string   "preview_content_type"
     t.integer  "preview_file_size"
     t.datetime "preview_updated_at"
   end
 
-  add_index "vasari_embeds", ["project_id"], name: "index_vasari_embeds_on_project_id"
+  add_index "vasari_embeds", ["embeddable_type", "embeddable_id"], name: "index_vasari_embeds_on_embeddable_type_and_embeddable_id"
 
   create_table "vasari_pictures", force: :cascade do |t|
-    t.integer  "project_id"
+    t.integer  "imageable_id"
+    t.string   "imageable_type"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
@@ -44,7 +46,7 @@ ActiveRecord::Schema.define(version: 20160421150326) do
     t.datetime "updated_at",         null: false
   end
 
-  add_index "vasari_pictures", ["project_id"], name: "index_vasari_pictures_on_project_id"
+  add_index "vasari_pictures", ["imageable_type", "imageable_id"], name: "index_vasari_pictures_on_imageable_type_and_imageable_id"
 
   create_table "vasari_project_collaborators", force: :cascade do |t|
     t.integer  "project_id"

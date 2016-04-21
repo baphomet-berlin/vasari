@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160309205028) do
+ActiveRecord::Schema.define(version: 20160421150326) do
 
   create_table "vasari_collaborators", force: :cascade do |t|
     t.string   "name"
@@ -19,6 +19,20 @@ ActiveRecord::Schema.define(version: 20160309205028) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "vasari_embeds", force: :cascade do |t|
+    t.string   "title"
+    t.string   "provider"
+    t.string   "original_url"
+    t.text     "code"
+    t.integer  "project_id"
+    t.string   "preview_file_name"
+    t.string   "preview_content_type"
+    t.integer  "preview_file_size"
+    t.datetime "preview_updated_at"
+  end
+
+  add_index "vasari_embeds", ["project_id"], name: "index_vasari_embeds_on_project_id"
 
   create_table "vasari_pictures", force: :cascade do |t|
     t.integer  "project_id"
@@ -50,8 +64,10 @@ ActiveRecord::Schema.define(version: 20160309205028) do
     t.date     "date_end"
     t.date     "date"
     t.boolean  "current"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.text     "brief_description"
+    t.text     "content"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "vasari_roles", force: :cascade do |t|

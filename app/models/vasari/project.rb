@@ -1,9 +1,12 @@
 module Vasari
   class Project < ActiveRecord::Base
-    has_many :project_collaborators, class_name: 'Vasari::ProjectCollaborator', inverse_of: :project
+    has_many :project_collaborators, class_name: 'Vasari::ProjectCollaborator', inverse_of: :project, dependent: :destroy
     has_many :collaborators, through: :project_collaborators, class_name: 'Vasari::Collaborator'
-    has_many :pictures, class_name: 'Vasari::Picture', inverse_of: :project
-    has_many :embeds, class_name: 'Vasari::Embed', inverse_of: :project
+    has_many :pictures, class_name: 'Vasari::Picture', inverse_of: :project, dependent: :destroy
+    has_many :embeds, class_name: 'Vasari::Embed', inverse_of: :project, dependent: :destroy
+    accepts_nested_attributes_for :embeds, :allow_destroy => true
+    accepts_nested_attributes_for :pictures, :allow_destroy => true
+    accepts_nested_attributes_for :project_collaborators, :allow_destroy => true
 
     validates :title, presence: true
     validates :date, presence: true

@@ -6,6 +6,8 @@ class CreateVasariItems < ActiveRecord::Migration
       t.date :date_end
       t.date :date
       t.boolean :current
+      t.text :brief_description
+      t.text :content
       t.timestamps null: false
     end
     create_table :vasari_pictures do |t|

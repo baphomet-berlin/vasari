@@ -6,7 +6,7 @@ class CreateVasariEmbeds < ActiveRecord::Migration
       t.string :original_url
       t.text :code
       t.references :project, index: true, foreign_key: true
-      t.paperclip :preview
+      t.attachment :preview
     end
   end
 end

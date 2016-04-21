@@ -6,6 +6,14 @@ module Vasari
     validates_presence_of :original_url
     before_save :set_embed_fields
 
+    def name
+      if self.embeddable
+        "#{self.embeddable.name} ##{self.id}"
+      else
+        "Unassigned ##{self.id}"
+      end
+    end
+
     private
 
     def set_embed_fields

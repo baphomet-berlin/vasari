@@ -5,5 +5,12 @@ module Vasari
     validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
     enum role: [ :cover, :gallery ]
 
+    def name
+      if self.imageable
+        "#{self.imageable.name} ##{self.id}"
+      else
+        "Unassigned ##{self.id}"
+      end
+    end
   end
 end

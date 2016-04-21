@@ -17,6 +17,10 @@ module Vasari
       order(date: :desc).group_by{ |item| item.date.year } 
     }
 
+    def name
+      self.title
+    end
+
     private
 
     def handle_date()

@@ -11,6 +11,8 @@ module Vasari
     validates :title, presence: true
     validates :date, presence: true
     before_validation :handle_date
+    before_save :set_slug
+
 
 
     scope :by_year, -> {
@@ -19,6 +21,12 @@ module Vasari
 
     def name
       self.title
+    end
+
+    def set_slug
+      if self.slug.blank?
+        self.slug = self.title.parameterize
+      end
     end
 
     private
